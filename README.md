@@ -1,7 +1,7 @@
 # Firebase Analytics WebView Quickstart
 
-This sample will demonstrate how to use Firebase Analytics in a WebView
-inside an Android or iOS app.
+This sample will demonstrate how to use [Firebase Analytics](https://firebase.google.com/docs/analytics/)
+in a WebView inside an Android or iOS app.
 
 ## Set Up
 
