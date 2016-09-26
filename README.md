@@ -21,6 +21,8 @@ in a WebView inside an Android or iOS app.
 
   * Run either the Android or iOS app.
   * You should see a WebView that looks like this:
+  
     ![screenshot](screenshot.png)
+    
   * Clicking on the buttons will produce log output in your
     running application.
