@@ -39,10 +39,11 @@
   _projectURL = [NSURL URLWithString:projectURLString];
 
   // Initialize the webview and add self as a script message handler.
-  WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-  [config.userContentController addScriptMessageHandler:self name:@"firebase"];
-
-  _webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:config];
+  _webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+  // [START add_handler]
+  [self.webView.configuration.userContentController addScriptMessageHandler:self
+                                                                       name:@"firebase"];
+  // [END add_handler]
   [self.view addSubview:self.webView];
 }
 
@@ -54,7 +55,7 @@
 }
 
 #pragma mark - WKScriptMessageHandler
-
+// [START handle_messages]
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
   if ([message.body[@"command"] isEqual:@"setUserProperty"]) {
@@ -63,5 +64,6 @@
     [FIRAnalytics logEventWithName:message.body[@"name"] parameters:message.body[@"parameters"]];
   }
 }
+// [END handle_messages]
 
 @end
