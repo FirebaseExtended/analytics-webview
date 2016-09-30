@@ -36,10 +36,12 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     self.projectURL = URL(string: projectURLString)!
 
     // Initialize the webview and add self as a script message handler.
-    let config = WKWebViewConfiguration()
-    config.userContentController.add(self, name: "firebase")
+    self.webView = WKWebView(frame: self.view.frame)
 
-    self.webView = WKWebView(frame: self.view.frame, configuration: config)
+    // [START add_handler]
+    self.webView.configuration.userContentController.add(self, name: "firebase")
+    // [END add_handler]
+
     self.view.addSubview(self.webView)
   }
 
@@ -50,6 +52,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     self.webView.load(request)
   }
 
+  // [START handle_messages]
   func userContentController(_ userContentController: WKUserContentController,
                              didReceive message: WKScriptMessage) {
     guard let body = message.body as? [String: Any] else { return }
@@ -64,6 +67,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
       FIRAnalytics.logEvent(withName: name, parameters: params)
     }
   }
+  // [END handle_messages]
 
 }
 
