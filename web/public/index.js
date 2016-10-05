@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// [START log_event]
 function logEvent(name, params) {
   if (!name) {
     return;
@@ -37,7 +38,9 @@ function logEvent(name, params) {
     console.log("No native APIs found.");
   }
 }
+// [END log_event]
 
+// [START set_user_property]
 function setUserProperty(name, value) {
   if (!name || !value) {
     return;
@@ -61,6 +64,7 @@ function setUserProperty(name, value) {
     console.log("No native APIs found.");
   }
 }
+// [END set_user_property]
 
 document.getElementById("event1").addEventListener("click", function() {
     console.log("event1");
