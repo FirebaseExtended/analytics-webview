@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.Iterator;
 
+// [START analytics_web_interface]
 public class AnalyticsWebInterface {
 
     public static final String TAG = "AnalyticsWebInterface";
@@ -58,6 +59,7 @@ public class AnalyticsWebInterface {
     }
 
     private Bundle bundleFromJson(String json) {
+        // [START_EXCLUDE]
         if (TextUtils.isEmpty(json)) {
             return new Bundle();
         }
@@ -87,6 +89,8 @@ public class AnalyticsWebInterface {
         }
 
         return result;
+        // [END_EXCLUDE]
     }
 
 }
+// [END analytics_web_interface]
