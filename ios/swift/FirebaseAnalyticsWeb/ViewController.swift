@@ -55,17 +55,17 @@ class ViewController: UIViewController, WKScriptMessageHandler {
 
   // [START handle_messages]
   func userContentController(_ userContentController: WKUserContentController,
-                           didReceive message: WKScriptMessage) {
+                            didReceive message: WKScriptMessage) {
     guard let body = message.body as? [String: Any] else { return }
     guard let command = body["command"] as? String else { return }
     guard let name = body["name"] as? String else { return }
 
     if command == "setUserProperty" {
-        guard let value = body["value"] as? String else { return }
-        Analytics.setUserProperty(value, forName: name)
+       guard let value = body["value"] as? String else { return }
+       Analytics.setUserProperty(value, forName: name)
     } else if command == "logEvent" {
-        guard let params = body["parameters"] as? [String: NSObject] else { return }
-        Analytics.logEvent(name, parameters: params)
+       guard let params = body["parameters"] as? [String: NSObject] else { return }
+       Analytics.logEvent(name, parameters: params)
     }
   }
   // [END handle_messages]
