@@ -55,7 +55,7 @@ class ViewController: UIViewController, WKScriptMessageHandler {
 
   // [START handle_messages]
   func userContentController(_ userContentController: WKUserContentController,
-                            didReceive message: WKScriptMessage) {
+                           didReceive message: WKScriptMessage) {
     guard let body = message.body as? [String: Any] else { return }
     guard let command = body["command"] as? String else { return }
     guard let name = body["name"] as? String else { return }
