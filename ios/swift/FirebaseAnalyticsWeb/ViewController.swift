@@ -52,19 +52,20 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     self.webView.load(request)
   }
 
+
   // [START handle_messages]
   func userContentController(_ userContentController: WKUserContentController,
-                             didReceive message: WKScriptMessage) {
+                           didReceive message: WKScriptMessage) {
     guard let body = message.body as? [String: Any] else { return }
     guard let command = body["command"] as? String else { return }
     guard let name = body["name"] as? String else { return }
 
     if command == "setUserProperty" {
       guard let value = body["value"] as? String else { return }
-      FIRAnalytics.setUserPropertyString(value, forName: name)
+      Analytics.setUserProperty(value, forName: name)
     } else if command == "logEvent" {
       guard let params = body["parameters"] as? [String: NSObject] else { return }
-      FIRAnalytics.logEvent(withName: name, parameters: params)
+      Analytics.logEvent(name, parameters: params)
     }
   }
   // [END handle_messages]
