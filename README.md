@@ -3,6 +3,12 @@
 This sample will demonstrate how to use [Firebase Analytics](https://firebase.google.com/docs/analytics/)
 in a WebView inside an Android or iOS app.
 
+## Status
+
+![Status: Archived](https://img.shields.io/badge/Status-Archived-red)
+
+This sample is no longer actively maintained and is left here for reference only.
+
 ## Set Up
 
   * Follow the instructions for your chosen platform:
