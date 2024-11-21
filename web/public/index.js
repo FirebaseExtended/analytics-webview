@@ -66,6 +66,31 @@ function setUserProperty(name, value) {
 }
 // [END set_user_property]
 
+// [START log_event_example]
+function logEventExample() {
+   
+   // Log an event named "purchase" with parameters
+   logEvent("purchase", {
+      content_type: "product",
+      value: 123,
+      currency: "USD",
+      quantity: 2,
+      items: [{
+        item_id: "sample-item-id",
+        item_variant: "232323"
+      }],
+      transaction_id: "1234567"
+   });
+}
+// [END log_event_example]
+   
+// [START log_user_property_example]
+function logUserPropertyExample() {
+   // Set a user property named 'favorite_genre'
+   setUserProperty("favorite_genre", "comedy")    
+}
+// [END log_user_property_example]
+
 document.getElementById("event1").addEventListener("click", function() {
     console.log("event1");
     logEvent("event1", { foo: "bar", baz: 123 });
