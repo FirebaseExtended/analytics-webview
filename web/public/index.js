@@ -92,7 +92,7 @@ function logUserPropertyExample() {
 // [END log_user_property_example]
 
 // [START log_manual_purchase_event]
-function logManualPurchaseEvent(name, params) {
+function logManualPurchaseEvent() {
   // For manually tracking in-app purchases within a WebView, log the in-app purchase event:
   logEvent("in_app_purchase", {
     currency: "USD",
