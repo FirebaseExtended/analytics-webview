@@ -91,6 +91,20 @@ function logUserPropertyExample() {
 }
 // [END log_user_property_example]
 
+// [START log_manual_purchase_event]
+function logManualPurchaseEvent(name, params) {
+  // For manually tracking in-app purchases within a WebView, log the in-app purchase event:
+  logEvent("in_app_purchase", {
+    currency: "USD",
+    price: 0.99,
+    product_id: "prod_123",
+    product_name: "Product 123",
+    quantity: 1,
+    value: 0.99,
+  });
+}
+// [END log_manual_purchase_event]
+
 document.getElementById("event1").addEventListener("click", function() {
     console.log("event1");
     logEvent("event1", { foo: "bar", baz: 123 });
